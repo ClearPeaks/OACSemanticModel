@@ -1,34 +1,26 @@
 {
-  "physicalTable": {
-    "name": "Fact_Recruitment_HireDate",
-    "sourceTable": "physicalTable:OR_HR.HR.FACTRECRUITMENT",
-    "caching": {
-      "enable": true
+  "physicalTable" : {
+    "name" : "Fact_Recruitment_HireDate",
+    "sourceTable" : "physicalTable:OR_HR.HR.FACTRECRUITMENT",
+    "caching" : {
+      "enable" : true,
+      "expiryTime" : 0
     },
-    "joins": [      {
-        "rightTable": "physicalTable:OR_HR.HR.Dim_Date",
-        "joinConditions": [          {
-            "leftColumn": "physicalColumn:OR_HR.HR.Fact_Recruitment_HireDate.HIRINGDATE_KEY",
-            "rightColumn": "physicalColumn:OR_HR.HR.Dim_Date.DATENUM"
-          }
-        ]
-      },
-      {
-        "rightTable": "physicalTable:OR_HR.HR.Dim_Employee",
-        "joinConditions": [          {
-            "leftColumn": "physicalColumn:OR_HR.HR.Fact_Recruitment_HireDate.EMPLOYEEID",
-            "rightColumn": "physicalColumn:OR_HR.HR.Dim_Employee.EMPLOYEEID"
-          }
-        ]
-      },
-      {
-        "rightTable": "physicalTable:OR_HR.HR.Dim_Positions",
-        "joinConditions": [          {
-            "leftColumn": "physicalColumn:OR_HR.HR.Fact_Recruitment_HireDate.POSITION_ID",
-            "rightColumn": "physicalColumn:OR_HR.HR.Dim_Positions.POSITION_ID"
-          }
-        ]
-      }
-    ]
+    "overrideSourceCacheSetting" : false,
+    "joins" : [ {
+      "rightTable" : "physicalTable:OR_HR.HR.Dim_Date",
+      "useJoinExpression" : false,
+      "joinConditions" : [ {
+        "leftColumn" : "physicalColumn:OR_HR.HR.Fact_Recruitment_HireDate.HIRINGDATE_KEY",
+        "rightColumn" : "physicalColumn:OR_HR.HR.Dim_Date.DATENUM"
+      } ]
+    }, {
+      "rightTable" : "physicalTable:OR_HR.HR.Dim_Employee",
+      "useJoinExpression" : false,
+      "joinConditions" : [ {
+        "leftColumn" : "physicalColumn:OR_HR.HR.Fact_Recruitment_HireDate.EMPLOYEEID",
+        "rightColumn" : "physicalColumn:OR_HR.HR.Dim_Employee.EMPLOYEEID"
+      } ]
+    } ]
   }
 }
